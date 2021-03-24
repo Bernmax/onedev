@@ -1,0 +1,19 @@
+services:
+
+  firstPod:
+    image: 1dev/server
+    ports:
+      - 6610:6610
+      - 6611:6611
+    stdin_open: true
+    tty: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /onedev:/opt/onedev
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 1025M
+
+version: '3'
